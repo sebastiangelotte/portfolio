@@ -1,51 +1,90 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import Navigation from "../components/navigation"
+import styled, { createGlobalStyle } from "styled-components"
 
-import Header from "./header"
-import "./layout.css"
+const GlobalStyle = createGlobalStyle`
+	:root {
+		--color-white: #fff;
+		--color-gray: #30363D;
+		--color-gray-dark: #0F171D;
+		--color-gray-light: #3C444D; 
+		--color-green: #82F9A1;
+		--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
+	}
+
+	body {
+		margin: 0;
+		background-color: var(--color-gray);
+		color: var(--color-white);
+		font-family: 'Open Sans';
+	}
+
+	h1, h2 {
+		font-family: 'Volkorn';
+	}
+
+	h1 {
+		font-size: 50px;
+	}
+
+	p {
+	  line-height: 1.75rem;
+	  font-size: 18px;
+	}
+
+	a {
+	  text-decoration: none;
+	  color: var(--color-white);
+	  border-bottom: 0.12em solid currentColor;
+	  padding-bottom: 1px;
+	  transition: color 100ms ease-in-out;
+
+	  &:hover {
+	    color: var(--color-green) !important;
+	  }
+	}
+`
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <Wrapper>
+      <GlobalStyle />
+      <Navigation />
+      <Main>{children}</Main>
+      <Footer>
+        <p>Designed and developed by Sebastian Gelotte.</p>
+        <p>Built with Gatsby. Hosted on Netlify. </p>
+        <p>Source code on Github. Design in Figma.</p>
+      </Footer>
+    </Wrapper>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default Layout
+
+const Wrapper = styled.div``
+
+const Main = styled.main`
+  max-width: 962px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  > * {
+    margin-top: 3rem;
+  }
+`
+
+const Footer = styled.footer`
+  background-color: var(--color-gray-dark);
+  padding: 3rem 0;
+  margin-top: 3rem;
+
+  > p {
+    max-width: 962px;
+    margin: 1rem auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+`
