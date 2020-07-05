@@ -53,8 +53,44 @@ const Layout = ({ children }) => {
       <Main>{children}</Main>
       <Footer>
         <p>Designed and developed by Sebastian Gelotte.</p>
-        <p>Built with Gatsby. Hosted on Netlify. </p>
-        <p>Source code on Github. Design in Figma.</p>
+        <p>
+          Built with{" "}
+          <a
+            href="https://gatsbyjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gatsby
+          </a>
+          . Hosted on{" "}
+          <a
+            href="https://netlify.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Netlify
+          </a>
+          .{" "}
+        </p>
+        <p>
+          Source code on{" "}
+          <a
+            href="https://github.com/sebastiangelotte/portfolio"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+          . Design in{" "}
+          <a
+            href="https://www.figma.com/file/57DGRhOlTOcKh97hTjfmFE/Portfolio?node-id=0%3A1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Figma
+          </a>
+          .
+        </p>
       </Footer>
     </Wrapper>
   )

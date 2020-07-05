@@ -85,7 +85,11 @@ const IndexPage = () => {
       </ListSection>
       <StyledGitHubCalendar>
         <h2>
-          <a target="_blank" href="https://github.com/sebastiangelotte">
+          <a
+            target="_blank"
+            href="https://github.com/sebastiangelotte"
+            rel="noopener noreferrer"
+          >
             @sebastiangelotte
           </a>
         </h2>
@@ -116,7 +120,9 @@ const ListSection = styled.section`
   }
 `
 
-const ListSectionInner = styled.div``
+const ListSectionInner = styled.div`
+  overflow: hidden;
+`
 
 const Heading = styled.h2`
   display: inline;

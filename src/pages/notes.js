@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import { List, ListItem } from "../components/list"
+import SEO from "../components/seo"
 
 const Notes = () => {
   const data = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ const Notes = () => {
 
   return (
     <Layout>
+      <SEO title="Notes" />
       <List>
         {notes.map((note, i) => (
           <ListItem

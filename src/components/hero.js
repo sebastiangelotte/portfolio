@@ -12,11 +12,21 @@ const Hero = () => {
       <p>
         Sebastian specializes in building things for the web. He talks about
         tech in his{" "}
-        <a href="" style={{ color: "#8DFFF2" }}>
+        <a
+          href="https://trevligmjukvara.se"
+          style={{ color: "#8DFFF2" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           podcast
         </a>
         , commits code to{" "}
-        <a href="" style={{ color: "#bbc6cc" }}>
+        <a
+          href="https://github.com/sebastiangelotte"
+          style={{ color: "#bbc6cc" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           GitHub
         </a>{" "}
         and documents his experiences in his{" "}

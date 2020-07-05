@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Post = ({ data }) => {
   const { markdownRemark } = data
@@ -8,6 +9,7 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={frontmatter.title} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )

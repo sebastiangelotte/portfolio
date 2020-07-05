@@ -7,10 +7,10 @@ const Navigation = () => {
   return (
     <Wrapper>
       <List>
-        <Item to="/notes">Notes</Item>
         <Item to="/">
           <img height="40px" src={kikki} alt="Home" />
         </Item>
+        <Item to="/notes">Notes</Item>
         <Item to="/contact">Contact</Item>
       </List>
     </Wrapper>
@@ -23,8 +23,8 @@ const List = styled.ul`
   list-style: none;
   display: grid;
   grid-auto-flow: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   grid-gap: 3rem;
   padding-left: 0;
   max-width: 962px;
