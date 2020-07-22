@@ -45,7 +45,20 @@ module.exports = {
         branch: `master`,
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 962,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
