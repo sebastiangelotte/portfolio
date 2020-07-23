@@ -10,7 +10,7 @@ const Post = ({ data }) => {
   return (
     <Layout>
       <SEO title={frontmatter.title} />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
 }

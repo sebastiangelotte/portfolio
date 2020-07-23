@@ -62,10 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `open sans\:400`,
-          `vollkorn\:800`, // you can also specify font weights and styles
-        ],
+        fonts: [`open sans\:400,800`],
         display: "swap",
       },
     },

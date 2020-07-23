@@ -20,16 +20,40 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	h1, h2 {
-		font-family: 'Volkorn';
+		font-weight: 800;
 	}
 
 	h1 {
 		font-size: 50px;
 	}
 
+	h2 {
+		font-size: 24px;
+	}
+
+	h3 {
+		font-size: 20px;
+		margin: 30px 0 10px 0;
+	}
+
+	h4 {
+		font-size: 18px;
+		margin: 20px 0 10px 0;
+	}
+
+	.markdown {
+		h1, h2 {
+			border-bottom: 1px solid var(--color-gray-light);
+		}
+
+		a {
+			color: var(--color-green);
+		}
+	}
+
 	p {
 	  line-height: 1.75rem;
-	  font-size: 18px;
+	  font-size: 16px;
 	}
 
 	a {
@@ -42,6 +66,18 @@ const GlobalStyle = createGlobalStyle`
 	  &:hover {
 	    color: var(--color-green) !important;
 	  }
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	th, td {
+		border: 1px solid var(--color-gray-light);
+		border-collapse: collapse;
+		padding: 10px 15px;
+		border-spacing: 0;
 	}
 `
 
