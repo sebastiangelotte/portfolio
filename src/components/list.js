@@ -3,6 +3,7 @@ import styled from "styled-components"
 import DynamicLink from "./dynamicLink"
 import { FaReact, FaMountain } from "react-icons/fa"
 import PodLogo from "../images/pod-logo.png"
+import NetlifyLogo from "../images/netlify-logo.svg"
 
 const Icon = ({ category }) => {
   switch (category) {
@@ -10,6 +11,8 @@ const Icon = ({ category }) => {
       return <img src={PodLogo} alt="category: pod" />
     case "react":
       return <FaReact />
+    case "netlify":
+      return <img src={NetlifyLogo} alt="category: netlify" />
     default:
       return <FaMountain />
   }
