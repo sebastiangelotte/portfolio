@@ -49,6 +49,11 @@ const GlobalStyle = createGlobalStyle`
 		a {
 			color: var(--color-green);
 		}
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 
 	p {
