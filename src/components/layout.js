@@ -50,6 +50,14 @@ const GlobalStyle = createGlobalStyle`
 			color: var(--color-green);
 		}
 
+		.anchor {
+			color: transparent;
+
+			svg {
+				fill: var(--color-white);
+			}
+		}
+
 		img {
 			display: block;
 			margin: 0 auto;

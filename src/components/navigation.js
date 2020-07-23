@@ -58,7 +58,5 @@ const Item = styled(Link)`
 
 const Wrapper = styled.div`
   background-color: var(--color-gray-dark);
-  position: sticky;
-  top: 0;
   z-index: 1;
 `
