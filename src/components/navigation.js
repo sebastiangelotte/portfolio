@@ -13,6 +13,9 @@ const Navigation = () => {
         <Item to="/notes">Notes</Item>
         <Item to="/contact">Contact</Item>
       </List>
+          <List>
+            <Switch />
+          </List>
     </Wrapper>
   )
 }
@@ -21,14 +24,10 @@ export default Navigation
 
 const List = styled.ul`
   list-style: none;
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-content: flex-start;
-  grid-gap: 3rem;
+  display: flex;
+  flex-direction: column;
   padding-left: 0;
-  max-width: 962px;
-  margin: 0 auto;
+  margin: 0;
 `
 
 const Item = styled(Link)`
