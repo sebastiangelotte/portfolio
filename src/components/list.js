@@ -50,7 +50,7 @@ export const Wrapper = styled(DynamicLink)`
   justify-content: center;
   color: var(--color-white);
   text-decoration: none;
-  background-color: var(--color-gray-light);
+  background-color: var(--color-highlight-primary);
   border-bottom: 0;
   transition: background-color 100ms ease-out;
 
@@ -88,5 +88,6 @@ const Heading = styled.h3`
 
 const Date = styled.time`
   font-size: 12px;
-  color: #ffffff94;
+  color: var(--color-text);
+  opacity: 0.7;
 `

@@ -1,21 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import kikki from "../images/kikki_face.svg"
 import { Link } from "gatsby"
+import Switch from "./switch"
+import { MdMenu, MdClose } from "react-icons/md"
 
 const Navigation = () => {
+  const [active, setActive] = useState(false)
+
+  const toggle = () => {
+    setActive(!active)
+  }
+
   return (
     <Wrapper>
-      <List>
-        <Item to="/">
-          <img height="40px" src={kikki} alt="Home" />
-        </Item>
-        <Item to="/notes">Notes</Item>
-        <Item to="/contact">Contact</Item>
-      </List>
+      <Inner>
+        <Activator onClick={toggle}>
+          {active ? <MdClose /> : <MdMenu />}
+        </Activator>
+        {active && (
           <List>
+            <Item to="/">🏠</Item>
+            <Item to="/notes">📝</Item>
+            <Item to="/contact">💌</Item>
             <Switch />
           </List>
+        )}
+      </Inner>
     </Wrapper>
   )
 }
@@ -31,31 +42,32 @@ const List = styled.ul`
 `
 
 const Item = styled(Link)`
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   text-decoration: none;
-  border-bottom: 3px solid transparent;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
-  position: relative;
-
-  &:hover {
-    &:after {
-      content: "";
-      height: 3px;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: var(--color-green);
-      box-shadow: #00ff43 3px 0px 22px;
-    }
-  }
+  font-size: 30px;
+  border: none;
+  text-align: center;
+  padding: 1rem 0;
 `
 
-const Wrapper = styled.div`
-  background-color: var(--color-gray-dark);
+const Wrapper = styled.nav`
   z-index: 1;
+  position: sticky;
+  top: 0;
+`
+
+const Inner = styled.div`
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: var(--color-highlight-primary);
+  border-radius: 50px;
+  padding: 0 1rem;
+`
+
+const Activator = styled.div`
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  cursor: pointer;
 `

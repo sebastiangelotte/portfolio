@@ -1,22 +1,40 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Navigation from "../components/navigation"
+import { useGlobalState } from "../globalState"
 import styled, { createGlobalStyle } from "styled-components"
+import { Helmet } from "react-helmet"
 
 const GlobalStyle = createGlobalStyle`
-	:root {
-		--color-white: #fff;
-		--color-gray: #30363D;
-		--color-gray-dark: #0F171D;
-		--color-gray-light: #3C444D; 
-		--color-green: #82F9A1;
-		--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
-	}
-
 	body {
+		
 		margin: 0;
-		background-color: var(--color-gray);
-		color: var(--color-white);
+		background-color: var(--color-background);
+		color: var(--color-text);
 		font-family: 'Open Sans';
+
+		&.light {
+			--color-text: #000;
+			--color-background: #F5F5F5;
+			--color-highlight-secondary: #FFF;
+			--color-highlight-primary: #FFF; 
+			--color-green: #82F9A1;
+			--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
+			--color-1: red;
+			--color-2: green;
+			--color-3: blue;
+		}
+
+		&.dark {
+			--color-text: #fff;
+			--color-background: #30363D;
+			--color-highlight-secondary: #0F171D;
+			--color-highlight-primary: #3C444D; 
+			--color-green: #82F9A1;
+			--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
+			--color-1: red;
+			--color-2: green;
+			--color-3: blue;
+		}
 	}
 
 	h1, h2 {
@@ -43,18 +61,22 @@ const GlobalStyle = createGlobalStyle`
 
 	.markdown {
 		h1, h2 {
-			border-bottom: 1px solid var(--color-gray-light);
+			border-bottom: 1px solid var(--color-text);
 		}
 
 		a {
-			color: var(--color-green);
+			color: var(--color-1);
+
+			&:hover {
+				color: var(--color-text) !important;
+		  }
 		}
 
 		.anchor {
 			color: transparent;
 
 			svg {
-				fill: var(--color-white);
+				fill: var(--color-text);
 			}
 		}
 
@@ -71,13 +93,13 @@ const GlobalStyle = createGlobalStyle`
 
 	a {
 	  text-decoration: none;
-	  color: var(--color-white);
+	  color: var(--color-text);
 	  border-bottom: 0.12em solid currentColor;
 	  padding-bottom: 1px;
 	  transition: color 100ms ease-in-out;
 
 	  &:hover {
-	    color: var(--color-green) !important;
+	    color: var(--color-text) !important;
 	  }
 	}
 
@@ -87,7 +109,8 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	th, td {
-		border: 1px solid var(--color-gray-light);
+		border: 1px solid var(--color-text);
+		background-color: var(--color-highlight-primary);
 		border-collapse: collapse;
 		padding: 10px 15px;
 		border-spacing: 0;
@@ -95,11 +118,22 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
+  const [darkMode] = useGlobalState("darkMode")
+  let theme = darkMode ? "dark" : "light"
+
   return (
     <Wrapper>
       <GlobalStyle />
+      <Helmet
+        bodyAttributes={{
+          class: theme,
+        }}
+      />
       <Navigation />
-      <Main>{children}</Main>
+      <Main>
+        {console.log(darkMode)}
+        {children}
+      </Main>
       <Footer>
         <p>Designed and developed by Sebastian Gelotte.</p>
         <p>
@@ -157,12 +191,12 @@ const Main = styled.main`
   padding-right: 1rem;
 
   > * {
-    margin-top: 3rem;
+    padding-top: 3rem;
   }
 `
 
 const Footer = styled.footer`
-  background-color: var(--color-gray-dark);
+  background-color: var(--color-highlight-secondary);
   padding: 3rem 0;
   margin-top: 3rem;
 

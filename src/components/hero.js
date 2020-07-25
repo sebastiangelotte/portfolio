@@ -14,7 +14,7 @@ const Hero = () => {
         tech in his{" "}
         <a
           href="https://trevligmjukvara.se"
-          style={{ color: "#8DFFF2" }}
+          style={{ color: "var(--color-1)" }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -23,14 +23,14 @@ const Hero = () => {
         , commits code to{" "}
         <a
           href="https://github.com/sebastiangelotte"
-          style={{ color: "#bbc6cc" }}
+          style={{ color: "var(--color-2)" }}
           target="_blank"
           rel="noopener noreferrer"
         >
           GitHub
         </a>{" "}
         and documents his experiences in his{" "}
-        <Link to="/notes" style={{ color: "#82F9A1" }}>
+        <Link to="/notes" style={{ color: "var(--color-3)" }}>
           notes
         </Link>
         .
