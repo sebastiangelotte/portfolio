@@ -35,7 +35,7 @@ const Hero = () => {
         </Link>
         .
       </p>
-      <img src={kikki} alt="Kikki the cat" />
+      <Image src={kikki} alt="Kikki the cat" />
     </Wrapper>
   )
 }
@@ -51,11 +51,13 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr;
   grid-gap: 0rem 4rem;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1000px) {
     grid-template-areas:
       "image image"
       "heading heading"
       "paragraph paragraph";
+
+    padding-top: 5rem !important;
   }
 
   > h1 {
@@ -63,17 +65,29 @@ const Wrapper = styled.div`
     background: var(--gradient-primary);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media (max-width: 1000px) {
+      font-size: 32px;
+    }
   }
 
   > p {
     grid-area: paragraph;
     align-self: flex-start;
   }
+`
 
-  > img {
-    grid-area: image;
-    width: 100%;
-    object-fit: cover;
-    max-height: 100%;
+const Image = styled.img`
+  grid-area: image;
+  width: 100%;
+  object-fit: cover;
+  max-height: 100%;
+  grid-area: image;
+  width: 100%;
+  object-fit: cover;
+  max-height: 100%;
+
+  @media (max-width: 1000px) {
+    display: none;
   }
 `

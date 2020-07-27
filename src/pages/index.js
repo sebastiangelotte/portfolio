@@ -7,18 +7,19 @@ import { List, ListItem } from "../components/list"
 import styled from "styled-components"
 import GitHubCalendar from "react-github-calendar"
 import ReactTooltip from "react-tooltip"
-
-const gitHubCalendarTheme = {
-  background: "transparent",
-  text: "#fff",
-  grade4: "#8dfff2",
-  grade3: "hsl(135.6, 90.8%, 75%)",
-  grade2: "hsl(135.6, 90.8%, 75%)",
-  grade1: "hsl(135.6, 90.8%, 75%)",
-  grade0: "#3c444d",
-}
+import { useGlobalState } from "../globalState"
 
 const IndexPage = () => {
+  const [darkMode] = useGlobalState("darkMode")
+  const gitHubCalendarTheme = {
+    background: "transparent",
+    text: darkMode ? "#fff" : "#000",
+    grade4: "#8dfff2",
+    grade3: "hsl(135.6, 90.8%, 75%)",
+    grade2: "hsl(135.6, 90.8%, 75%)",
+    grade1: "hsl(135.6, 90.8%, 75%)",
+    grade0: darkMode ? "#3c444d" : "#dee5ec",
+  }
   const data = useStaticQuery(graphql`
     query indexQuery {
       allFeedTrevligMjukvara(limit: 6) {

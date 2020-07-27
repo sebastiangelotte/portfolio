@@ -28,6 +28,7 @@ const Notes = () => {
   return (
     <Layout>
       <SEO title="Notes" />
+      <h1>Notes</h1>
       <List>
         {notes.map((note, i) => (
           <ListItem

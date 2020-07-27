@@ -3,8 +3,13 @@ import Navigation from "../components/navigation"
 import { useGlobalState } from "../globalState"
 import styled, { createGlobalStyle } from "styled-components"
 import { Helmet } from "react-helmet"
+import "tippy.js/dist/tippy.css"
 
 const GlobalStyle = createGlobalStyle`
+	* {
+		transition: background-color 100ms ease-in, color 100ms ease-in;
+	}
+
 	body {
 		
 		margin: 0;
@@ -19,9 +24,10 @@ const GlobalStyle = createGlobalStyle`
 			--color-highlight-primary: #FFF; 
 			--color-green: #82F9A1;
 			--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
-			--color-1: red;
-			--color-2: green;
-			--color-3: blue;
+			--color-1: var(--color-text);
+			--color-2: var(--color-text);
+			--color-3: var(--color-text);
+			--color-navigation: #DEE5EC;
 		}
 
 		&.dark {
@@ -31,9 +37,10 @@ const GlobalStyle = createGlobalStyle`
 			--color-highlight-primary: #3C444D; 
 			--color-green: #82F9A1;
 			--gradient-primary: linear-gradient(90deg, #F27A54 0%, #A154F2 186.42%);
-			--color-1: red;
-			--color-2: green;
-			--color-3: blue;
+			--color-1: var(--color-text);
+			--color-2: var(--color-text);
+			--color-3: var(--color-text);
+			--color-navigation: #4C5B6D;
 		}
 	}
 
@@ -181,7 +188,9 @@ const Layout = ({ children }) => {
 
 export default Layout
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  overflow: auto;
+`
 
 const Main = styled.main`
   max-width: 962px;
@@ -191,7 +200,7 @@ const Main = styled.main`
   padding-right: 1rem;
 
   > * {
-    padding-top: 3rem;
+    margin-bottom: 4rem;
   }
 `
 

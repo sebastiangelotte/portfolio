@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import kikki from "../images/kikki_face.svg"
 import { Link } from "gatsby"
 import Switch from "./switch"
 import { MdMenu, MdClose } from "react-icons/md"
+import Tippy from "@tippyjs/react"
+import { useScrollDirection } from "../useScrollDirection"
 
 const Navigation = () => {
   const [active, setActive] = useState(false)
@@ -12,17 +13,25 @@ const Navigation = () => {
     setActive(!active)
   }
 
+  console.log(useScrollDirection() === "down")
+
   return (
-    <Wrapper>
+    <Wrapper hide={useScrollDirection() === "down"}>
       <Inner>
         <Activator onClick={toggle}>
           {active ? <MdClose /> : <MdMenu />}
         </Activator>
         {active && (
           <List>
-            <Item to="/">🏠</Item>
-            <Item to="/notes">📝</Item>
-            <Item to="/contact">💌</Item>
+            <Tippy content="Home" placement="right">
+              <Item to="/">🏠</Item>
+            </Tippy>
+            <Tippy content="Notes" placement="right">
+              <Item to="/notes">📝</Item>
+            </Tippy>
+            <Tippy content="Contact" placement="right">
+              <Item to="/contact">💌</Item>
+            </Tippy>
             <Switch />
           </List>
         )}
@@ -50,18 +59,21 @@ const Item = styled(Link)`
 `
 
 const Wrapper = styled.nav`
-  z-index: 1;
-  position: sticky;
-  top: 0;
+  ${props => (props.hide ? `display: none;` : `display: block;`)}
 `
 
 const Inner = styled.div`
   position: absolute;
   top: 2rem;
   left: 2rem;
-  background-color: var(--color-highlight-primary);
+  background-color: var(--color-navigation);
   border-radius: 50px;
   padding: 0 1rem;
+
+  @media (max-width: 1000px) {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
 `
 
 const Activator = styled.div`
