@@ -59,6 +59,9 @@ const Item = styled(Link)`
 `
 
 const Wrapper = styled.nav`
+  z-index: 1;
+  position: relative;
+
   ${props => (props.hide ? `display: none;` : `display: block;`)}
 `
 

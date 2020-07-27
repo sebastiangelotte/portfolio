@@ -56,8 +56,6 @@ const Wrapper = styled.div`
       "image image"
       "heading heading"
       "paragraph paragraph";
-
-    padding-top: 5rem !important;
   }
 
   > h1 {

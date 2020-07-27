@@ -202,6 +202,8 @@ const Main = styled.main`
   > * {
     margin-bottom: 4rem;
   }
+
+  padding-top: 5rem;
 `
 
 const Footer = styled.footer`
