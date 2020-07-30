@@ -76,7 +76,7 @@ const IndexPage = () => {
         </ListSectionInner>
         <ListSectionInner size="40">
           <Heading>Podcast</Heading>
-          <Link to="http://www.trevligmjukvara.se">trevligmjukvara.se</Link>
+          <a href="https://www.trevligmjukvara.se">trevligmjukvara.se</a>
           <List>
             {podcastEpisodes.map((episode, i) => (
               <ListItem item={{ ...episode.node, category: "pod" }} key={i} />
