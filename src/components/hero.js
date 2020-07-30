@@ -63,6 +63,7 @@ const Wrapper = styled.div`
     background: var(--gradient-primary);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline; // iOS fix for background-clip bug
 
     @media (max-width: 1000px) {
       font-size: 32px;

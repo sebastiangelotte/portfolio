@@ -13,8 +13,6 @@ const Navigation = () => {
     setActive(!active)
   }
 
-  console.log(useScrollDirection() === "down")
-
   return (
     <Wrapper hide={useScrollDirection() === "down"}>
       <Inner>

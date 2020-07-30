@@ -4,6 +4,8 @@ import { useGlobalState } from "../globalState"
 import styled, { createGlobalStyle } from "styled-components"
 import { Helmet } from "react-helmet"
 import "tippy.js/dist/tippy.css"
+import coronaCat1 from "../images/corona-cat-1.svg"
+import coronaCat2 from "../images/corona-cat-2.svg"
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -141,6 +143,10 @@ const Layout = ({ children }) => {
         {console.log(darkMode)}
         {children}
       </Main>
+      <Bottom>
+        <img src={coronaCat1} alt="#wearthedamnmask" title="#wearthedamnmask" />
+        <img src={coronaCat2} alt="#wearthedamnmask" title="#wearthedamnmask" />
+      </Bottom>
       <Footer>
         <p>Designed and developed by Sebastian Gelotte.</p>
         <p>
@@ -181,7 +187,7 @@ const Layout = ({ children }) => {
           </a>
           .
         </p>
-      </Footer>
+      </Footer>{" "}
     </Wrapper>
   )
 }
@@ -208,7 +214,7 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   background-color: var(--color-highlight-secondary);
-  padding: 3rem 0;
+  padding: 3rem 0 3rem 0;
   margin-top: 3rem;
 
   > p {
@@ -217,4 +223,11 @@ const Footer = styled.footer`
     padding-left: 1rem;
     padding-right: 1rem;
   }
+`
+
+const Bottom = styled.div`
+  display: flex;
+  max-width: 962px;
+  margin: 0 auto -72px auto;
+  justify-content: space-around;
 `
