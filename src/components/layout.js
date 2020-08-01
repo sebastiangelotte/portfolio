@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet"
 import "tippy.js/dist/tippy.css"
 import coronaCat1 from "../images/corona-cat-1.svg"
 import coronaCat2 from "../images/corona-cat-2.svg"
+import coronaCat3 from "../images/corona-cat-3.svg"
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -145,6 +146,7 @@ const Layout = ({ children }) => {
       </Main>
       <Bottom>
         <img src={coronaCat1} alt="#wearthedamnmask" title="#wearthedamnmask" />
+        <img src={coronaCat3} alt="#wearthedamnmask" title="#wearthedamnmask" />
         <img src={coronaCat2} alt="#wearthedamnmask" title="#wearthedamnmask" />
       </Bottom>
       <Footer>
@@ -187,7 +189,7 @@ const Layout = ({ children }) => {
           </a>
           .
         </p>
-      </Footer>{" "}
+      </Footer>
     </Wrapper>
   )
 }
@@ -228,6 +230,6 @@ const Footer = styled.footer`
 const Bottom = styled.div`
   display: flex;
   max-width: 962px;
-  margin: 0 auto -72px auto;
+  margin: 0 auto -76px auto;
   justify-content: space-around;
 `
