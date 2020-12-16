@@ -40,6 +40,7 @@ export const List = styled.ul`
   list-style: none;
   border-radius: 4px;
   overflow: hidden;
+  margin-top: 0;
 `
 
 export const Wrapper = styled(DynamicLink)`

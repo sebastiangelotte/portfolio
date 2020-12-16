@@ -59,8 +59,10 @@ const IndexPage = () => {
       <Hero />
       <ListSection>
         <ListSectionInner size="60">
-          <Heading>Latest notes</Heading>
-          <Link to="/notes">See all</Link>
+          <HeadingWrapper>
+            <Heading>Latest notes</Heading>
+            <Link to="/notes">See all</Link>
+          </HeadingWrapper>
           <List>
             {notes.map((note, i) => (
               <ListItem
@@ -75,8 +77,10 @@ const IndexPage = () => {
           </List>
         </ListSectionInner>
         <ListSectionInner size="40">
-          <Heading>Podcast</Heading>
-          <a href="https://www.trevligmjukvara.se">trevligmjukvara.se</a>
+          <HeadingWrapper>
+            <Heading>Podcast</Heading>
+            <a href="https://www.trevligmjukvara.se">trevligmjukvara.se</a>
+          </HeadingWrapper>
           <List>
             {podcastEpisodes.map((episode, i) => (
               <ListItem item={{ ...episode.node, category: "pod" }} key={i} />
@@ -85,7 +89,7 @@ const IndexPage = () => {
         </ListSectionInner>
       </ListSection>
       <StyledGitHubCalendar>
-        <h2>
+        <Heading>
           <a
             target="_blank"
             href="https://github.com/sebastiangelotte"
@@ -93,7 +97,7 @@ const IndexPage = () => {
           >
             @sebastiangelotte
           </a>
-        </h2>
+        </Heading>
         <GitHubCalendar
           username="sebastiangelotte"
           showTotalCount={false}
@@ -102,6 +106,21 @@ const IndexPage = () => {
           <ReactTooltip delayShow={30} html />
         </GitHubCalendar>
       </StyledGitHubCalendar>
+      <CVWrapper>
+        <HeadingWrapper>
+          <Heading>CV / Resume</Heading>
+          <a target="_blank" href="/cv_sebastian_gelotte_2020.pdf">
+            👉 PDF-version
+          </a>
+        </HeadingWrapper>
+        <iframe
+          style={{ border: "none" }}
+          width="100%"
+          height="450"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FM5COUGmo4vwCKGdF3SdAJR%2FCV-Resume%3Fnode-id%3D25%253A0%26scaling%3Dmin-zoom"
+          allowFullScreen
+        ></iframe>
+      </CVWrapper>
     </Layout>
   )
 }
@@ -125,10 +144,13 @@ const ListSectionInner = styled.div`
   overflow: hidden;
 `
 
-const Heading = styled.h2`
-  display: inline;
-  padding-right: 1rem;
+const HeadingWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
 `
+
+const Heading = styled.h2``
 
 const StyledGitHubCalendar = styled.div`
   svg {
@@ -138,3 +160,5 @@ const StyledGitHubCalendar = styled.div`
     }
   }
 `
+
+const CVWrapper = styled.div``
