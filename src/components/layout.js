@@ -114,4 +114,9 @@ const Bottom = styled.div`
   max-width: 962px;
   margin: 0 auto -76px auto;
   justify-content: space-around;
+  overflow-x: auto;
+
+  @media screen and (max-width: 650px) {
+    justify-content: flex-start;
+  }
 `
